@@ -2,7 +2,7 @@ const Tabbar = () => import('@/components/Tabbar/');
 
 export default [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     components: {
       default: () => import('@/views/home/tabbar-home'),

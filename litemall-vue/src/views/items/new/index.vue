@@ -1,7 +1,7 @@
 <template>
   <div class="goods_new">
     <div class="banner">
-      <div class="title">新品首发</div>
+      <div class="title"></div>
     </div>
 
     <van-list v-model="loading"
@@ -81,7 +81,7 @@ export default {
   padding: 20px;
   .banner {
     height: 250px;
-    background-image: url('http://yanxuan.nosdn.127.net/8976116db321744084774643a933c5ce.png');
+    background-image: url('http://oss1.rsc1.cn:9271/group2/M00/00/7C/rBIJomA_VJGAHmiGAAIsBf2a03c984.png');
     background-size: cover;
     margin-bottom: 20px;
     .title {
