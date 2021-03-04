@@ -8,8 +8,8 @@
     <van-cell-group class="item_cell_group" v-if="goods">
       <van-cell class="item_info">
         <div>
-          <span class="item_price">{{ goods.info.retailPrice*100 | yuan }}</span>
-          <span class="item_market_price">{{goods.info.counterPrice*100 | yuan}}</span>
+          <span class="item_price">{{ goods.info.retailPrice + '万' }}</span>
+<!--          <span class="item_market_price">{{goods.info.counterPrice*100 | yuan}}</span>-->
         </div>
         <div class="item-title">
           {{ goods.info.name }}
@@ -19,16 +19,16 @@
     </van-cell-group>
 
   <div class="item_cell_group">
-    <van-cell-group>
-      <van-cell
-        title="规格"
-        isLink
-        value="请选择"
-        @click.native="skuClick"
-      />
-      <van-cell title="属性" isLink @click.native="propsPopup = true"/>
-      <van-cell title="运费" value="满88免邮费"/>
-    </van-cell-group>
+<!--    <van-cell-group>-->
+<!--      <van-cell-->
+<!--        title="规格"-->
+<!--        isLink-->
+<!--        value="请选择"-->
+<!--        @click.native="skuClick"-->
+<!--      />-->
+<!--      <van-cell title="属性" isLink @click.native="propsPopup = true"/>-->
+<!--      <van-cell title="运费" value="满88免邮费"/>-->
+<!--    </van-cell-group>-->
     <van-sku
       v-model="showSku"
       :sku="sku"
@@ -44,18 +44,18 @@
   </div>
 
     <div class="item_desc">
-      <div class="item_desc_title">商品详情</div>
+      <div class="item_desc_title">详情</div>
       <div class="item_desc_wrap" v-if="goods.info.detail" v-html="goods.info.detail"></div>
       <div class="item_desc_wrap" v-else style="text-align: center;">
         <p>无详情</p>
       </div>
     </div>
 
-    <van-goods-action>
-      <van-goods-action-icon @click="toCart" icon="cart-o" :info="(cartInfo > 0) ? cartInfo : ''"/>
-      <van-goods-action-icon @click="addCollect" icon="star-o" :style="(goods.userHasCollect !== 0) ? 'color: #f7b444;':''"/>
-      <van-goods-action-button type="warning" @click="skuClick" text="加入购物车"/>
-      <van-goods-action-button type="danger" @click="skuClick" text="立即购买"/>
+    <van-goods-action style="padding: 10px;padding-bottom: 20px;    height: 60px;">
+<!--      <van-goods-action-icon @click="toCart" icon="cart-o" :info="(cartInfo > 0) ? cartInfo : ''"/>-->
+<!--      <van-goods-action-icon @click="addCollect" icon="star-o" :style="(goods.userHasCollect !== 0) ? 'color: #f7b444;':''"/>-->
+      <van-goods-action-button type="warning" @click="skuClick" text="马上咨询"/>
+<!--      <van-goods-action-button type="danger" @click="skuClick" text="立即购买"/>-->
     </van-goods-action>
 
   </div>
@@ -125,7 +125,8 @@ export default {
 
   methods: {
     skuClick() {
-      this.showSku = true;
+      // this.showSku = true;
+      window.location.href = 'tel://18177351245'
     },
     initData() {
       goodsDetail({ id: this.itemId }).then(res => {

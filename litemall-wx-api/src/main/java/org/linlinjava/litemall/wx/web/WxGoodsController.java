@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 /**
  * 商品服务
@@ -93,6 +95,8 @@ public class WxGoodsController {
 	public Object detail(@LoginUser Integer userId, @NotNull Integer id) {
 		// 商品信息
 		LitemallGoods info = goodsService.findById(id);
+		BigDecimal retailPrice = info.getRetailPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
+		info.setRetailPrice(retailPrice);
 
 		// 商品属性
 		Callable<List> goodsAttributeListCallable = () -> goodsAttributeService.queryByGid(id);
@@ -278,6 +282,12 @@ public class WxGoodsController {
 		} else {
 			categoryList = new ArrayList<>(0);
 		}
+
+		goodsList = goodsList.stream().map(litemallGoods -> {
+			BigDecimal retailPrice = litemallGoods.getRetailPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
+			litemallGoods.setRetailPrice(retailPrice);
+			return litemallGoods;
+		}).collect(Collectors.toList());
 
 		PageInfo<LitemallGoods> pagedList = PageInfo.of(goodsList);
 
