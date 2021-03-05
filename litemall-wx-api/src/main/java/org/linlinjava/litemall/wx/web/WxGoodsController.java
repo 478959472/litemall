@@ -96,7 +96,10 @@ public class WxGoodsController {
 		// 商品信息
 		LitemallGoods info = goodsService.findById(id);
 		BigDecimal retailPrice = info.getRetailPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
+		BigDecimal counterPrice = info.getCounterPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
 		info.setRetailPrice(retailPrice);
+		info.setCounterPrice(counterPrice);
+
 
 		// 商品属性
 		Callable<List> goodsAttributeListCallable = () -> goodsAttributeService.queryByGid(id);
@@ -286,6 +289,8 @@ public class WxGoodsController {
 		goodsList = goodsList.stream().map(litemallGoods -> {
 			BigDecimal retailPrice = litemallGoods.getRetailPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
 			litemallGoods.setRetailPrice(retailPrice);
+			BigDecimal counterPrice = litemallGoods.getCounterPrice().divide(new BigDecimal("10000"),4, BigDecimal.ROUND_HALF_UP);
+			litemallGoods.setRetailPrice(counterPrice);
 			return litemallGoods;
 		}).collect(Collectors.toList());
 

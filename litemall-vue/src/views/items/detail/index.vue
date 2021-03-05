@@ -8,7 +8,7 @@
     <van-cell-group class="item_cell_group" v-if="goods">
       <van-cell class="item_info">
         <div>
-          <span class="item_price">{{ goods.info.retailPrice + '万' }}</span>
+          <span class="item_price">{{ goods.info.counterPrice + '万' }}</span>
 <!--          <span class="item_market_price">{{goods.info.counterPrice*100 | yuan}}</span>-->
         </div>
         <div class="item-title">
@@ -65,12 +65,14 @@
 
 import { goodsDetail, cartGoodsCount, collectAddOrDelete, cartAdd, cartFastAdd } from '@/api/api';
 
-import { Sku, Swipe, SwipeItem, GoodsAction, GoodsActionButton, GoodsActionIcon, Popup } from 'vant';
+import { Sku, Swipe,Lazyload , SwipeItem, GoodsAction, GoodsActionButton, GoodsActionIcon, Popup } from 'vant';
 import { setLocalStorage } from '@/utils/local-storage';
 import popupProps from './popup-props';
 import _ from 'lodash';
-
+import Vue from 'vue'
+Vue.use(Lazyload);
 export default {
+
   props: {
     itemId: [String, Number]
   },

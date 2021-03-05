@@ -146,88 +146,88 @@ export const asyncRoutes = [
     ]
   },
 
-  {
-    path: '/mall',
-    component: Layout,
-    redirect: 'noredirect',
-    alwaysShow: true,
-    name: 'mallManage',
-    meta: {
-      title: '商场管理',
-      icon: 'chart'
-    },
-    children: [
-      {
-        path: 'region',
-        component: () => import('@/views/mall/region'),
-        name: 'region',
-        meta: {
-          title: '行政区域',
-          noCache: true
-        }
-      },
-      {
-        path: 'brand',
-        component: () => import('@/views/mall/brand'),
-        name: 'brand',
-        meta: {
-          perms: ['GET /admin/brand/list', 'POST /admin/brand/create', 'GET /admin/brand/read', 'POST /admin/brand/update', 'POST /admin/brand/delete'],
-          title: '品牌制造商',
-          noCache: true
-        }
-      },
-      {
-        path: 'category',
-        component: () => import('@/views/mall/category'),
-        name: 'category',
-        meta: {
-          perms: ['GET /admin/category/list', 'POST /admin/category/create', 'GET /admin/category/read', 'POST /admin/category/update', 'POST /admin/category/delete'],
-          title: '商品类目',
-          noCache: true
-        }
-      },
-      {
-        path: 'order',
-        component: () => import('@/views/mall/order'),
-        name: 'order',
-        meta: {
-          perms: ['GET /admin/order/list', 'GET /admin/order/detail', 'POST /admin/order/ship', 'POST /admin/order/refund', 'POST /admin/order/delete', 'POST /admin/order/reply'],
-          title: '订单管理',
-          noCache: true
-        }
-      },
-      {
-        path: 'aftersale',
-        component: () => import('@/views/mall/aftersale'),
-        name: 'aftersale',
-        meta: {
-          perms: ['GET /admin/aftersale/list', 'GET /admin/aftersale/detail', 'POST /admin/order/receive', 'POST /admin/aftersale/complete', 'POST /admin/aftersale/reject'],
-          title: '售后管理',
-          noCache: true
-        }
-      },
-      {
-        path: 'issue',
-        component: () => import('@/views/mall/issue'),
-        name: 'issue',
-        meta: {
-          perms: ['GET /admin/issue/list', 'POST /admin/issue/create', 'GET /admin/issue/read', 'POST /admin/issue/update', 'POST /admin/issue/delete'],
-          title: '通用问题',
-          noCache: true
-        }
-      },
-      {
-        path: 'keyword',
-        component: () => import('@/views/mall/keyword'),
-        name: 'keyword',
-        meta: {
-          perms: ['GET /admin/keyword/list', 'POST /admin/keyword/create', 'GET /admin/keyword/read', 'POST /admin/keyword/update', 'POST /admin/keyword/delete'],
-          title: '关键词',
-          noCache: true
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/mall',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   alwaysShow: true,
+  //   name: 'mallManage',
+  //   meta: {
+  //     title: '商场管理',
+  //     icon: 'chart'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'region',
+  //       component: () => import('@/views/mall/region'),
+  //       name: 'region',
+  //       meta: {
+  //         title: '行政区域',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'brand',
+  //       component: () => import('@/views/mall/brand'),
+  //       name: 'brand',
+  //       meta: {
+  //         perms: ['GET /admin/brand/list', 'POST /admin/brand/create', 'GET /admin/brand/read', 'POST /admin/brand/update', 'POST /admin/brand/delete'],
+  //         title: '品牌制造商',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'category',
+  //       component: () => import('@/views/mall/category'),
+  //       name: 'category',
+  //       meta: {
+  //         perms: ['GET /admin/category/list', 'POST /admin/category/create', 'GET /admin/category/read', 'POST /admin/category/update', 'POST /admin/category/delete'],
+  //         title: '商品类目',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'order',
+  //       component: () => import('@/views/mall/order'),
+  //       name: 'order',
+  //       meta: {
+  //         perms: ['GET /admin/order/list', 'GET /admin/order/detail', 'POST /admin/order/ship', 'POST /admin/order/refund', 'POST /admin/order/delete', 'POST /admin/order/reply'],
+  //         title: '订单管理',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'aftersale',
+  //       component: () => import('@/views/mall/aftersale'),
+  //       name: 'aftersale',
+  //       meta: {
+  //         perms: ['GET /admin/aftersale/list', 'GET /admin/aftersale/detail', 'POST /admin/order/receive', 'POST /admin/aftersale/complete', 'POST /admin/aftersale/reject'],
+  //         title: '售后管理',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'issue',
+  //       component: () => import('@/views/mall/issue'),
+  //       name: 'issue',
+  //       meta: {
+  //         perms: ['GET /admin/issue/list', 'POST /admin/issue/create', 'GET /admin/issue/read', 'POST /admin/issue/update', 'POST /admin/issue/delete'],
+  //         title: '通用问题',
+  //         noCache: true
+  //       }
+  //     },
+  //     {
+  //       path: 'keyword',
+  //       component: () => import('@/views/mall/keyword'),
+  //       name: 'keyword',
+  //       meta: {
+  //         perms: ['GET /admin/keyword/list', 'POST /admin/keyword/create', 'GET /admin/keyword/read', 'POST /admin/keyword/update', 'POST /admin/keyword/delete'],
+  //         title: '关键词',
+  //         noCache: true
+  //       }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/goods',
@@ -541,47 +541,47 @@ export const asyncRoutes = [
       }
     ]
   },
-  {
-    path: 'external-link',
-    component: Layout,
-    redirect: 'noredirect',
-    alwaysShow: true,
-    name: 'externalLink',
-    meta: {
-      title: '外链',
-      icon: 'link'
-    },
-    children: [
-      {
-        path: 'https://cloud.tencent.com/product/cos',
-        meta: { title: '腾讯云存储', icon: 'link' }
-      },
-      {
-        path: 'https://cloud.tencent.com/product/sms',
-        meta: { title: '腾讯云短信', icon: 'link' }
-      },
-      {
-        path: 'https://pay.weixin.qq.com/index.php/core/home/login',
-        meta: { title: '微信支付', icon: 'link' }
-      },
-      {
-        path: 'https://mpkf.weixin.qq.com/',
-        meta: { title: '小程序客服', icon: 'link' }
-      },
-      {
-        path: 'https://www.alibabacloud.com/zh/product/oss',
-        meta: { title: '阿里云存储', icon: 'link' }
-      },
-      {
-        path: 'https://www.qiniu.com/products/kodo',
-        meta: { title: '七牛云存储', icon: 'link' }
-      },
-      {
-        path: 'http://www.kdniao.com/api-track',
-        meta: { title: '快递鸟', icon: 'link' }
-      }
-    ]
-  },
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   alwaysShow: true,
+  //   name: 'externalLink',
+  //   meta: {
+  //     title: '外链',
+  //     icon: 'link'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'https://cloud.tencent.com/product/cos',
+  //       meta: { title: '腾讯云存储', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'https://cloud.tencent.com/product/sms',
+  //       meta: { title: '腾讯云短信', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'https://pay.weixin.qq.com/index.php/core/home/login',
+  //       meta: { title: '微信支付', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'https://mpkf.weixin.qq.com/',
+  //       meta: { title: '小程序客服', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'https://www.alibabacloud.com/zh/product/oss',
+  //       meta: { title: '阿里云存储', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'https://www.qiniu.com/products/kodo',
+  //       meta: { title: '七牛云存储', icon: 'link' }
+  //     },
+  //     {
+  //       path: 'http://www.kdniao.com/api-track',
+  //       meta: { title: '快递鸟', icon: 'link' }
+  //     }
+  //   ]
+  // },
   {
     path: '/profile',
     component: Layout,
